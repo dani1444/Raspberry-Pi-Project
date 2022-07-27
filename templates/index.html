@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <title>Rod tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='vendor/axios/axios.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+  </head>
+  <body>
+    <section id="streaming_viewer">
+      <h1 align="center">Group D</h1>
+      <img id="background" class="center" src="{{ url_for('video_feed') }}">
+    </section>
+
+    <section id="actions">
+      <h2>Buttons For Action</h2>
+ 
+        <div>
+            <!-- Button to update the system's status -->
+          <button class="button1" onclick="requestStartMotor()">Start Motor</button>
+            <!-- Button to update the system's status -->
+          <button class="button2" onclick="requestStopMotor()">Stop Motor</button>
+            <!-- Button to update the system's status -->
+          <button class="button3" onclick="updateStatus()">Update Status</button>
+            <!-- 'Start motor' button with corresponding request after clicking -->
+          </div>
+        </div>
+    </section>
+
+    <section id="monitoring_info">
+      <h2>Monitoring Information:</h2>
+
+      <!-- HTML elements for 'Current shape' information -->
+      <p><b>Current shape from Open CV:</b>
+        <b>Triangle: </b><span id="triangle_open_cv"></span>,
+        <b>Square: </b><span id="square_open_cv"></span>,
+        <b>Circle: </b><span id="circle_open_cv"></span>
+      </p>
+
+      <p><b>Current shape from distance:</b>
+        <b>Triangle: </b><span id="triangle_from_distance"></span>,
+        <b>Square: </b><span id="square_from_distance"></span>,
+        <b>Circle: </b><span id="circle_from_distance"></span>
+      </p>
+
+      <!-- HTML elements for 'Distance' information -->
+      <p><b>Distance:</b><span id="distance"></span>
+      </p>
+
+            <!-- HTML elements for 'Motor status' information -->
+      <p><b>Motor Status:</b><span id="motorStatus"></span>
+      </p>
+
+    </section>
+
+  </body>
+</html>
